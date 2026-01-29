@@ -14,6 +14,6 @@
     "htmlfy": "^0.2.0"
   },
   "devDependencies": {
-    "esbuild": "^0.20.0"
+    "esbuild": "^0.27.2"
   }
 }
