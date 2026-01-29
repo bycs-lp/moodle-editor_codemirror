@@ -1,0 +1,38 @@
+name: Build CodeMirror Bundle
+
+on:
+  push:
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'src/**'
+      - 'build.mjs'
+  pull_request:
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'src/**'
+      - 'build.mjs'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - name: Commit changes
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add -A
+          git diff --staged --quiet || git commit -m "chore: rebuild CodeMirror bundle"
+          git push

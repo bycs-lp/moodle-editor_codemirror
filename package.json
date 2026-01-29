@@ -1,0 +1,19 @@
+{
+  "name": "editor_codemirror",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CodeMirror 6 editor integration for Moodle",
+  "scripts": {
+    "build": "node build.mjs && npm install -g grunt-cli && grunt amd --force"
+  },
+  "dependencies": {
+    "codemirror": "^6.0.1",
+    "@codemirror/lang-css": "^6.3.0",
+    "@codemirror/lang-html": "^6.4.0",
+    "@codemirror/lang-javascript": "^6.2.0",
+    "htmlfy": "^0.2.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.20.0"
+  }
+}
