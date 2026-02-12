@@ -7,13 +7,18 @@
     "build": "node build.mjs && npm install -g grunt-cli && grunt amd --force"
   },
   "dependencies": {
-    "codemirror": "^6.0.1",
     "@codemirror/lang-css": "^6.3.0",
     "@codemirror/lang-html": "^6.4.0",
     "@codemirror/lang-javascript": "^6.2.0",
+    "codemirror": "^6.0.1",
     "htmlfy": "^0.2.0"
   },
   "devDependencies": {
-    "esbuild": "^0.20.0"
+    "esbuild": "^0.20.0",
+    "grunt": "^1.6.1",
+    "grunt-contrib-clean": "^2.0.1",
+    "grunt-contrib-sass": "^2.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-load-gruntfile": "^0.0.2"
   }
 }

@@ -15,18 +15,22 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version information for Codemirror
+ * Web service definitions for editor_codemirror.
  *
  * @package    editor_codemirror
- * @copyright  2024 ISB Bayern
+ * @copyright  2025
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component    = 'editor_codemirror';
-$plugin->release      = '0.2';
-$plugin->version      = 2025013000;
-$plugin->requires     = 2024042200;
-$plugin->supported    = [404, 500];
-$plugin->maturity     = MATURITY_STABLE;
+$functions = [
+    'editor_codemirror_format_text' => [
+        'classname'   => 'editor_codemirror\external\format_text',
+        'methodname'  => 'execute',
+        'description' => 'Format text with Moodle filters applied',
+        'type'        => 'read',
+        'ajax'        => true,
+        'loginrequired' => true,
+    ],
+];
