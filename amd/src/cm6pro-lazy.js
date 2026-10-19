@@ -28636,14 +28636,12 @@ class CodeProEditor {
             this.themeConfig.of([themes['light']]),
             updateListenerExtension,
         ];
-        let name = textarea.name.split('[', 1)[0];
-        let formatElement = textarea.form.querySelector('[name="' + name + '[format]"]');
-        if (formatElement) {
-            switch(parseInt(formatElement.value)) {
-                case 90:
+        if (options['codemirror-language']) {
+            switch(options['codemirror-language']) {
+                case 'css':
                     extensions.push(css());
                     break;
-                case 91:
+                case 'javascript':
                     extensions.push(javascript());
                     break;
                 default:

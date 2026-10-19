@@ -30,28 +30,17 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class codemirror_texteditor extends texteditor {
-    /** @var int FORMAT_CSS Format constant for CSS */
-    public const FORMAT_CSS = 90;
-    /** @var int FORMAT_JS Format constant for JavaScript */
-    public const FORMAT_JS = 91;
-    /** @var int FORMAT_HTML Format constant for HTML */
-    public const FORMAT_HTML = 92;
-
     /**
      * This plugin only supports the FORMAT_CODE format.
      * @return array
      */
     public function get_supported_formats() {
-        return [
-            FORMAT_HTML => FORMAT_HTML,
-            self::FORMAT_CSS => self::FORMAT_CSS,
-            self::FORMAT_JS => self::FORMAT_JS,
-            self::FORMAT_HTML => self::FORMAT_HTML,
-        ];
+        $formats = [ FORMAT_HTML => FORMAT_HTML ];
+        return $formats;
     }
 
     /**
-     * This editor prefers the FORMAT_CSS format.
+     * This editor prefers the FORMAT_HTML format.
      * @return int
      */
     public function get_preferred_format() {
@@ -68,11 +57,11 @@ class codemirror_texteditor extends texteditor {
     }
 
     /**
-     * This editor supports repositories.
+     * This editor does not support repositories.
      * @return bool
      */
     public function supports_repositories() {
-        return true;
+        return false;
     }
 
     /**
