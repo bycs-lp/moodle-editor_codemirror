@@ -28636,20 +28636,16 @@ class CodeProEditor {
             this.themeConfig.of([themes['light']]),
             updateListenerExtension,
         ];
-        let name = textarea.name.split('[', 1)[0];
-        let formatElement = textarea.form.querySelector('[name="' + name + '[format]"]');
-        if (formatElement) {
-            switch(parseInt(formatElement.value)) {
-                case 90:
-                    extensions.push(css());
-                    break;
-                case 91:
-                    extensions.push(javascript());
-                    break;
-                default:
-                    extensions.push(html());
-            }
-        }
+        switch(options['codemirror-language'] ?? '') {
+            case 'css':
+                extensions.push(css());
+                break;
+            case 'javascript':
+                extensions.push(javascript());
+                break;
+            default:
+                extensions.push(html());
+        }        
         this._editorView = new EditorView({
             extensions: extensions,
             parent: this._parentElement,

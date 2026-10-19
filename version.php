@@ -28,5 +28,5 @@ $plugin->component    = 'editor_codemirror';
 $plugin->release      = '0.1';
 $plugin->version      = 2024100700;
 $plugin->requires     = 2024042200;
-$plugin->supported    = [404, 500];
+$plugin->supported    = [405, 503];
 $plugin->maturity     = MATURITY_STABLE;
